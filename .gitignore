@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+.idea/
+*.yaml
+*.json
+*.wtdump
+final_mongo_temp/
+crashed_mongo/
