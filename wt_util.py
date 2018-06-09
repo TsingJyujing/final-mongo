@@ -1,12 +1,14 @@
 # coding=utf-8
-# 有线老虎工具集
+"""
+有线老虎工具集
+"""
 from config import *
 
 
 def get_command(host: str):
     """
     获取WT工具指令
-    :param host:
+    :param host: MongoDB数据目录的绝对路径
     :return:
     """
     return "\"{}\" -v -h \"{}\" -C \"extensions=[{}]\" ".format(
@@ -19,7 +21,7 @@ def get_command(host: str):
 def dump(host: str, wt_file: str, dump_file: str):
     """
     将指定的URI导出为DUMP文件
-    :param host: 文件根目录
+    :param host: MongoDB数据目录的绝对路径
     :param wt_file: 有线老虎文件
     :param dump_file: 需要备份的文件
     :return:
@@ -30,7 +32,7 @@ def dump(host: str, wt_file: str, dump_file: str):
 def load(host: str, wt_file: str, dump_file: str):
     """
     将指定的URI导出为DUMP文件
-    :param host: 文件根目录
+    :param host: MongoDB数据目录的绝对路径
     :param wt_file: 有线老虎文件
     :param dump_file: 需要备份的文件
     :return:

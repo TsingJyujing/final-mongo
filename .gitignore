@@ -108,3 +108,5 @@ venv.bak/
 *.wtdump
 final_mongo_temp/
 crashed_mongo/
+*.tar.gz
+*.mongz

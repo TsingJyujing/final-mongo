@@ -14,6 +14,10 @@ import sys
 
 
 def load_meta_data() -> dict:
+    """
+    获取MongoDB表的元信息
+    :return:
+    """
     with TempMongoDBProcess(is_clean_path=True) as tmp:
         # 创建一个库，创建一个Collection
         with tmp.create_connection() as mc:
@@ -43,5 +47,12 @@ def load_meta_data() -> dict:
 
 
 if __name__ == '__main__':
-    for k, v in load_meta_data().items():
-        print("{}\t{}".format(k, v), file=sys.stderr)
+    with open("meta_data.json", "w") as fp:
+        json.dump([
+            {
+                "db": collection_info.split(".")[0],
+                "coll": collection_info.split(".")[1],
+                "wt": wired_tiger_info
+            }
+            for collection_info, wired_tiger_info in load_meta_data().items()
+        ], fp, indent=2)
